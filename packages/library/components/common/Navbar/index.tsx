@@ -6,36 +6,22 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <Relative
-      as="header"
-      display="flex"
-      height="64px"
-      width="100%"
-      px={[4, 4, 4, 6]}
-    >
+    <Relative as="header" display="flex" height="64px" width="100%" px={[4]}>
       <Flex
         alignItems="center"
         justifyContent="space-between"
         width="100%"
-        sx={{ "& > a": { fontSize: 28, fontWeight: "900" } }}
+        sx={{ "& > a": { fontSize: 22, fontWeight: "900" } }}
       >
         <Link href="/" passHref>
-          Nextjs13-Template
+          Clément Muth
         </Link>
         <Flex as="nav">
-          <Flex as="ul" px={0}>
+          <Flex as="ul" px={0} sx={{ gap: 32 }}>
             {links.map(({ label, ...link }) => (
-              <Flex
-                as="li"
-                key={label}
-                alignItems="center"
-                fontSize={1}
-                fontWeight={600}
-              >
+              <Flex as="li" key={label} alignItems="center" fontSize={1} fontWeight={600}>
                 <Link {...link} passHref>
-                  <Text as="span" color="lightGrey" px={[2, 3]}>
-                    {label}
-                  </Text>
+                  <Text as="span">{label}</Text>
                 </Link>
               </Flex>
             ))}

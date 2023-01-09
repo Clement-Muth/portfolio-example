@@ -5,6 +5,18 @@ export type Link = { href: LinkProps["href"]; label: string; icon?: string };
 export const links: Link[] = [
   {
     href: "/",
-    label: "Home",
+    label: "Home"
   },
+  {
+    href: "/about",
+    label: "About"
+  },
+  {
+    href: "/works",
+    label: "Works"
+  },
+  {
+    href: "/contact",
+    label: "Contact"
+  }
 ];

@@ -1,16 +1,15 @@
 import { NextSeo } from "next-seo";
 import { Layout } from "library/components/common/Layout";
-import { Text } from "library/components/ui";
-import { Flex } from "rebass";
+import { Home } from "views/home";
 
 const IndexPage = () => {
   return (
     <>
-      <NextSeo />
-      <Flex justifyContent="center" alignItems="center" height="calc(100vh - 64px)">
-        <Text fontSize={6}>Hello :)</Text>
-        <Text fontSize={6}>Hello :)</Text>
-      </Flex>
+      <NextSeo
+        title="Clément Muth - Freelance Développeur web - React/Nextjs/Typescript"
+        description="I care a lot about using web development for positive impact and enjoy creating web applications and delightful interfaces."
+      />
+      <Home />
     </>
   );
 };

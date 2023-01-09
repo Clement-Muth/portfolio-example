@@ -16,12 +16,12 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=86400, must-revalidate",
-          },
-        ],
-      },
+            value: "public, max-age=86400, must-revalidate"
+          }
+        ]
+      }
     ];
-  },
+  }
 };
 
 const withPWA = require("next-pwa")({
@@ -29,7 +29,7 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_ENV === "development",
   register: true,
   scope: "/",
-  sw: "service-worker.js",
+  sw: "service-worker.js"
 });
 
 module.exports = withPWA(withBundleAnalyzer(withTM(nextConfig)));
