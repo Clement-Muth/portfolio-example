@@ -5,13 +5,7 @@ const Page404 = () => (
   <>
     <NextSeo title="404" description="" />
     <Flex>
-      <Flex
-        flexDirection="column"
-        m="auto"
-        width="100%"
-        height="calc(100vh - 64px)"
-        justifyContent="center"
-      >
+      <Flex flexDirection="column" m="auto" width="100%" height="calc(100vh - 64px)" justifyContent="center">
         <Text as="h1" textAlign="center">
           <Text as="p" color="primary" fontWeight="700">
             Oops!
