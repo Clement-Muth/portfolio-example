@@ -1,28 +1,72 @@
-import { Text } from "library/components/ui";
-import { Absolute } from "library/components/common/Positions/Absolute";
-import Link from "next/link";
 import { Button, Card, Flex, Image } from "rebass";
+import { CardProject } from "./CardProject";
+import { Text } from "library/components/ui";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const Home = () => {
+  const router = useRouter();
+
   return (
-    <Flex flexDirection="column" pb={25} sx={{ gap: 25 }}>
-      <Flex px={25} height="700px" sx={{ gap: 25 }}>
-        <Card display="flex" flexDirection="column" bg="#F1F1F1" p={6} width="60%" sx={{ borderRadius: 35 }}>
+    <Flex flexDirection="column" px={15} pb={15} sx={{ gap: 15 }}>
+      <Flex sx={{ gap: 15, "@media (max-width: 920px)": { flexDirection: "column" } }}>
+        <Card
+          display="flex"
+          flexDirection="column"
+          minHeight={600}
+          bg="#F1F1F1"
+          p={[4, 6]}
+          flex={1.7}
+          sx={{ borderRadius: 35 }}
+        >
           <Flex flexDirection="column" flexGrow="1">
-            <Text as="h1" fontSize="58px" lineHeight="1" fontWeight="400">
+            <Text
+              as="h1"
+              fontSize="58px"
+              lineHeight="1"
+              fontWeight="400"
+              sx={{
+                "@media (max-width: 770px)": {
+                  fontSize: 5
+                }
+              }}
+            >
               Hey, I&apos;m Clément, a web
               <br />
-              developer with 7 years
+              developer with +7 years
               <br /> of experience
             </Text>
-            <Text as="h2" fontSize="24px" mt={5} fontWeight="400">
+            <Text
+              as="h2"
+              fontSize="24px"
+              mt={5}
+              fontWeight="400"
+              sx={{
+                "@media (max-width: 770px)": {
+                  fontSize: 3
+                }
+              }}
+            >
               I care a lot about using web development for positive impact
               <br /> and enjoy creating web applications and
               <br /> delightful interfaces.
             </Text>
           </Flex>
           <Flex sx={{ gap: 20 }}>
-            <Button py="20px" px={5} fontSize={3} fontWeight="600" bg="black" sx={{ borderRadius: 50 }}>
+            <Button
+              py="20px"
+              px={5}
+              fontSize={3}
+              fontWeight="600"
+              bg="black"
+              sx={{
+                borderRadius: 50,
+                "@media (max-width: 770px)": {
+                  fontSize: 2
+                }
+              }}
+              onClick={() => router.push("/contact")}
+            >
               Contact me
             </Button>
             <Link href="https://www.linkedin.com/in/clement-muth/" target="_blank">
@@ -44,7 +88,8 @@ export const Home = () => {
         </Card>
         <Card
           p={7}
-          width="40%"
+          minHeight={600}
+          flex={1}
           sx={{
             borderRadius: 35,
             backgroundImage: "url('/static/images/me.png')",
@@ -53,45 +98,9 @@ export const Home = () => {
           }}
         ></Card>
       </Flex>
-      <Flex px={25} height="750px" sx={{ gap: 25 }}>
-        <Card
-          p={7}
-          flex={1}
-          sx={{
-            borderRadius: 35,
-            backgroundImage: "url('/static/images/azinove.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative"
-          }}
-        >
-          <Absolute right="46px" top="46px">
-            <Link href="https://azinove.com" target="_blank">
-              <Flex width={62} height={62} overflow="hidden" p="18px" bg="white" sx={{ borderRadius: 50 }}>
-                <Image src="/static/svg/arrow.svg" />
-              </Flex>
-            </Link>
-          </Absolute>
-        </Card>
-        <Card
-          p={7}
-          flex={1}
-          sx={{
-            borderRadius: 35,
-            backgroundImage: "url('/static/images/project.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative"
-          }}
-        >
-          <Absolute right="46px" top="46px">
-            <Link href="https://project.azinove.com" target="_blank">
-              <Flex width={62} height={62} overflow="hidden" p="18px" bg="white" sx={{ borderRadius: 50 }}>
-                <Image src="/static/svg/arrow.svg" />
-              </Flex>
-            </Link>
-          </Absolute>
-        </Card>
+      <Flex sx={{ gap: 15, "@media (max-width: 900px)": { flexDirection: "column" } }}>
+        <CardProject backgroundSrc="/static/images/azinove.png" href="https://azinove.com" />
+        <CardProject backgroundSrc="/static/images/project.png" href="https://project.azinove.com" />
       </Flex>
     </Flex>
   );

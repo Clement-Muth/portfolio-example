@@ -8,10 +8,6 @@ export const links: Link[] = [
     label: "Home"
   },
   {
-    href: "/about",
-    label: "About"
-  },
-  {
     href: "/works",
     label: "Works"
   },
